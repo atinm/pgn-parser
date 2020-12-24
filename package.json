@@ -1,5 +1,5 @@
 {
-  "name": "@mliebelt/pgn-parser",
+  "name": "@atinm/pgn-parser",
   "description": "A PEG parser to read PGN (Portable Game Notation) games.",
   "keywords": [
     "chess",
@@ -7,19 +7,19 @@
     "peg",
     "parser"
   ],
-  "version": "1.1.1",
-  "homepage": "https://github.com/mliebelt/pgn-parser/blob/master/README.md",
-  "bugs": "https://github.com/mliebelt/pgn-parser/issues",
+  "version": "1.1.2",
+  "homepage": "https://github.com/atinm/pgn-parser/blob/master/README.md",
+  "bugs": "https://github.com/atinm/pgn-parser/issues",
   "main": "pgn-parser.js",
   "files": [
     "_pgn-parser.js",
     "README.md"
   ],
-  "author": "mliebelt",
+  "author": "atinm",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mliebelt/pgn-parser.git"
+    "url": "https://github.com/atinm/pgn-parser.git"
   },
   "devDependencies": {
     "mocha": "^8.0.1",

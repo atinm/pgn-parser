@@ -1,4 +1,5 @@
 var parser = require("../pgn-parser.js");
+var fs = require('fs')
 
 var should = require('should');
 
@@ -295,5 +296,17 @@ describe("Parsing PGN game with all kinds of discriminators", function () {
 describe("Just examples of complex notations", function () {
     it("should be useful in the documentation", function () {
         let my_res = parser.parse("1. {first move} e4! {my favorite} e5 (1... c5!?)")
+    })
+})
+
+describe("Parsing PGN file with Chess 960 games", function() {
+    it("should set variant to chess960", function() {
+        fs.readFile(process.cwd() + '/test/chess960_gm_blitz.pgn', 'utf8', function (err, data) {
+            if (err) { throw err }
+            let res = parser.parse(data, { startRule: "games" } )
+            should(res.length).equal(21)
+            should(res[0].tags['Variant']).equal("chess 960")
+        })
+
     })
 })

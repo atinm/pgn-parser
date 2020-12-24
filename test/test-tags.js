@@ -67,10 +67,17 @@ describe("When working with all kind of tags", function () {
         let res = parse_tags('[TimeControl "?"]')
         should(res.TimeControl).equal("?")
     })
-    it("should read alternative starting positions", function () {
-        let res = parse_tags('[FEN "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"] [SetUp "1"]')
+    it("should read alternative starting positions and variant", function () {
+        let res = parse_tags('[FEN "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"] [SetUp "1"] [Variant "chess 960"]')
         should(res.SetUp).equal("1")
         should(res.FEN).equal("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")
+        should(res.Variant).equal("chess 960")
+    })
+    it("should read chess960 starting positions and variant", function () {
+        let res = parse_tags('[FEN "bbqrknrn/pppppppp/8/8/8/8/PPPPPPPP/BBQRKNRN w GDgd - 0 1"] [SetUp "1"] [Variant "chess 960"]')
+        should(res.SetUp).equal("1")
+        should(res.FEN).equal("bbqrknrn/pppppppp/8/8/8/8/PPPPPPPP/BBQRKNRN w GDgd - 0 1")
+        should(res.Variant).equal("chess 960")
     })
     // '["Key" "Value"] ["Key" "Value"] ["Key" "Value"] ["Key" "Value"] ["Key" "Value"] ["Key" "Value"] '
     it("should read game conclusion and misc", function () {

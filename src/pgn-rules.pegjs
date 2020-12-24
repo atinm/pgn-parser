@@ -66,6 +66,7 @@ tagKeyValue = eventKey ws value:string { return { name: 'Event', value: value };
 	/ modeKey ws value:string  { return { name: 'Mode', value: value }; }
 	/ plyCountKey ws value:integerString  { return { name: 'PlyCount', value: value }; }
 	/ any:stringNoQuot ws value:string { return { name: any, value: value }; }
+	/ variantKey ws value:string  { return { name: 'Variant', value: value }; }
 
 eventKey 				=  'Event' / 'event'
 siteKey 				=  'Site' / 'site'
@@ -104,6 +105,7 @@ terminationKey          =  'Termination'  / 'termination'
 anotatorKey             =  'Annotator'  / 'annotator'
 modeKey                 =  'Mode' / 'mode'
 plyCountKey             =  'PlyCount'  / 'Plycount' / 'plycount'
+variantKey              =  'Variant' / 'variant'
 
 ws "whitespace" = [ \t\n\r]*
 wsp = [ \t\n\r]+

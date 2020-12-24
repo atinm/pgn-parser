@@ -27,6 +27,14 @@ describe("When readming many games", function () {
             done()
         })
     })
+    it("should read the correct number of chess960 games (more)", function (done) {
+        fs.readFile(process.cwd() + '/test/chess960_gm_blitz.pgn', 'utf8', function (err, data) {
+            if (err) { throw err }
+            let res = parser.parse(data, { startRule: "games" } )
+            should(res.length).equal(21)
+            done()
+        })
+    })
     // I have kept that bigger file only locally so the test will not run in Github actions
     xit("should read the correct number of games (much more)", function (done) {
         fs.readFile(process.cwd() + '/test/twic-02.pgn', 'utf8', function (err, data) {
